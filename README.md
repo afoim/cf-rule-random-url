@@ -51,7 +51,7 @@ python gen_img.py
 * **Path Rewrite** (选择 **Dynamic**):
   * 在输入框中填入以下表达式：
   ```text
-  concat("/", http.request.uri.path, "/", substring(uuidv4(cf.random_seed), 0, 3), ".jpg")
+  concat(http.request.uri.path, "/", substring(uuidv4(cf.random_seed), 0, 3), ".jpg")
   ```
 
 > **⚠️ 注意**：此规则假设你的请求路径（如 `/h`）直接对应 `dist` 下的文件夹名。规则会自动拼接路径，生成如 `/h/1a2.jpg` 的重写地址。
